@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Format } from "./format"; //format file to render data fetched
+// import { Format } from "./format"; //format file to render data fetched
 import "./styles.css";
 
 const options = {
@@ -20,19 +20,13 @@ export default function App() {
     //useEffect to fetch the API once the city is changed
     fetch(baseUrl, options)
       .then((response) => response.json())
-      .then((response) => (setInputValue(response), console.log(response)))
+      .then((response) => setInputValue(response))
       .catch((err) => console.error(err));
   }, [city]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-
-  // const result = inputValue.map( (item)  => {
-  //   return (
-  //     <Format item={ item } />
-  //   )
-  // })
 
   return (
     <div className="App">
@@ -41,7 +35,7 @@ export default function App() {
       {console.log(city)}
       <button onClick={handleSubmit}>Search</button>
       <div>
-        <div>{console.log(inputValue)}</div>
+        <div></div>
       </div>
     </div>
   );
